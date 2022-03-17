@@ -41,13 +41,11 @@ myApp.controller('myController', function($scope) {
 
 myApp.controller('sendConsultationEmail', ['$scope', '$http', '$location', '$anchorScroll', function($scope, $http, $location, $anchorScroll){
 
-  var firstname = document.getElementById("firstname");
-  var lastname = document.getElementById("lastname");
-  var companyname = document.getElementById("companyname");
-  var jobtitle = document.getElementById("jobtitle");
-  var emailaddr = document.getElementById("emailaddr");
-  var phonenumber = document.getElementById("phonenumber");
-  var messagebody = document.getElementById("messagebody");
+  var name = document.getElementById("name");
+  var email = document.getElementById("email");
+  var subject = document.getElementById("subject");
+  var phone= document.getElementById("phone");
+  var message = document.getElementById("message");
   //var body = {'title':'test','message':'test'};
   
   var insertedElement = null;
@@ -82,7 +80,7 @@ myApp.controller('sendConsultationEmail', ['$scope', '$http', '$location', '$anc
     if (!phone.value) {
       $scope.insertWarning(phone, 'phone', "Please enter your phone number!");
       return;
-  
+    }
     if (!message.value) {
       $scope.insertWarning(message, 'message', "Please enter your questions or message!");
       return;
@@ -94,11 +92,11 @@ myApp.controller('sendConsultationEmail', ['$scope', '$http', '$location', '$anc
           method: 'POST', 
           data: {'sender': 'no-response@gmail.com', 'receiver': 'yunyang0331@gmail.com', 'title': 'General request', 'message': 'name: ' + name.value + '\n' + 'email: ' + emial.value + '\n' + 'subject: ' + subject.value + '\n' + 'phone: ' + phone.value + '\n' + 'message: ' + message.value }
       });
-      $scope.insertWarning(submitButton, 'submitButton', "Thanks for your message, you will be contacted in 2 workdays！");
+      $scope.insertWarning(submitButton, 'submitButton', "Thanks for your message, you will be contacted in 2 workdays!");
       messageSent = true;
     }
     else {
-      $scope.insertWarning(submitButton, 'submitButton', "Your message was already sent, please refresh page to start sent another message！");
+      $scope.insertWarning(submitButton, 'submitButton', "Your message was already sent, please refresh page to start sent another message!");
     }
   }
 }]);
