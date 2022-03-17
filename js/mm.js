@@ -87,7 +87,7 @@ myApp.controller('sendConsultationEmail', ['$scope', '$http', '$location', '$anc
     }
     if (messageSent == false) {
       $http({ 
-          url: 'https://yunyang0331.github.io/YunWeb/sendemail', 
+          url: 'https://yunyang0331.github.io', 
           dataType: 'json', 
           method: 'POST', 
           data: {'sender': 'no-response@gmail.com', 'receiver': 'yunyang0331@gmail.com', 'title': 'General request', 'message': 'name: ' + name.value + '\n' + 'email: ' + emial.value + '\n' + 'subject: ' + subject.value + '\n' + 'phone: ' + phone.value + '\n' + 'message: ' + message.value }
